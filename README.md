@@ -2,6 +2,11 @@
 
 This is a simple API that provides information about universe and solar system planets
 
+## Public endpoints
+
+Api endpoints can be accessed at:
+https://planets.juanfrausto.com/api/planets
+
 ## Setup
 
 To run this project, you need to have the following tools installed:
