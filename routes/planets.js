@@ -12,6 +12,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/test',async(req,res)=>{ res.json(message:"test")});
+
 router.post('/', async (req, res) => {
     const planet = new Planet({
         name: req.body.name,
