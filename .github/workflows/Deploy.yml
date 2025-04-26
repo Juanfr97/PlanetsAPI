@@ -14,15 +14,15 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Docker Image
-        run: docker build -t ghcr.io/juanfr97/planets-api:${{ github.sha }} .
+        run: docker build -t juanfr97/planets-api:${{ github.sha }} .
 
       - name: Tag Latest
-        run: docker tag ghcr.io/juanfr97/planets-api:${{ github.sha }} ghcr.io/juanfr97/planets-api:latest
+        run: docker tag juanfr97/planets-api:${{ github.sha }} juanfr97/planets-api:latest
         
       - name: Log into GitHub Container Registry
-        run: docker login ghcr.io -u ${{ github.repository_owner }} --password ${{ secrets.CR_PAT }}
+        run: docker login -u juanfr97 --password Greenday..10
 
       - name: Push Docker Images to GitHub Container Registry
         run: |
-          docker push ghcr.io/juanfr97/planets-api:${{ github.sha }}
-          docker push ghcr.io/juanfr97/planets-api:latest
+          docker push juanfr97/planets-api:${{ github.sha }}
+          docker push juanfr97/planets-api:latest
