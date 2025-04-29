@@ -5,7 +5,7 @@ const Universe = require('../models/Universe');
 router.get('/', async (req, res) => {
     try {
         const universes = await Universe.find();
-        res.json(universes);
+        res.json(universes[0]);
     } catch (error) {
         res.json({ message: error });
     }
