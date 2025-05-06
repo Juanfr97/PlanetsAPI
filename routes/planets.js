@@ -5,8 +5,13 @@ const Planet = require('../models/Planet');
 router.get('/', async (req, res) => {
     try {
         const planets = await Planet.find();
-        console.log(planets)
-        res.json(planets);
+        const planetsWithId = planets.map(planet => {
+            const obj = planet.toObject();
+            obj.id = obj._id;
+            delete obj._id;
+            return obj;
+        });
+        res.json(planetsWithId);
     } catch (error) {
         res.json({ message: error });
     }
@@ -44,7 +49,11 @@ router.post('/', async (req, res) => {
 router.get('/:planetId', async (req, res) => {
     try {
         const planet = await Planet.findById(req.params.planetId);
-        res.json(planet);
+        const obj = planet.toObject();
+        obj.id = obj._id;
+        delete obj._id;
+
+        res.json(obj);
     } catch (error) {
         res.json({ message: error });
     }
